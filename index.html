@@ -3,31 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Pricing cards for our fabulous AI and storage services" />
+    <meta
+      name="description"
+      content="Оберіть оптимальний тарифний план для хмарних AI-сервісів та збереження даних. Гнучкі тарифи Basic, Pro та Enterprise для команд будь-якого масштабу."
+    />
     <link rel="stylesheet" href="css/root.css" />
     <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="canonical" href="#" />
+    <link
+      rel="canonical"
+      href="https://maksym-kovalchuk-thepolarleo.github.io/frontend-lab-3-ai-assisted-semantic-HTML-and-SEO/"
+    />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <title>ЛР-2: AI-assisted верстка</title>
+    <meta property="og:title" content="Тарифи та плани підписки | Хмарні AI-сервіси" />
+    <meta
+      property="og:description"
+      content="Оберіть оптимальний тарифний план для хмарних AI-сервісів та збереження даних. Гнучкі тарифи Basic, Pro та Enterprise."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://maksym-kovalchuk-thepolarleo.github.io/frontend-lab-3-ai-assisted-semantic-HTML-and-SEO/"
+    />
+    <title>Тарифи та плани підписки | Хмарні AI-сервіси</title>
   </head>
   <body>
     <header>
-      <nav class="nav-links">
-        <a href="./researches/html/4-1-box-model.html">4.1 Box Model</a>
-        <a href="./researches/html/4-2-cascade.html">4.2 Cascade</a>
-        <a href="./researches/html/4-3-specificity.html">4.3 Specificity</a>
-        <a href="./researches/html/4-4-inheritance.html">4.4 Inheritance</a>
-        <a href="./researches/html/4-5-variables.html">4.5 CSS Variables</a>
-        <a href="./researches/html/4-6-reuse.html">4.6 Reuse</a>
+      <nav class="nav-links" aria-label="Лабораторні дослідження">
+        <ul style="list-style: none; margin: 0; padding: 0; display: contents">
+          <li style="display: contents">
+            <a href="./researches/html/4-1-box-model.html">4.1 Box Model</a>
+          </li>
+          <li style="display: contents">
+            <a href="./researches/html/4-2-cascade.html">4.2 Cascade</a>
+          </li>
+          <li style="display: contents">
+            <a href="./researches/html/4-3-specificity.html">4.3 Specificity</a>
+          </li>
+          <li style="display: contents">
+            <a href="./researches/html/4-4-inheritance.html">4.4 Inheritance</a>
+          </li>
+          <li style="display: contents">
+            <a href="./researches/html/4-5-variables.html">4.5 CSS Variables</a>
+          </li>
+          <li style="display: contents">
+            <a href="./researches/html/4-6-reuse.html">4.6 Reuse</a>
+          </li>
+        </ul>
       </nav>
     </header>
 
     <main class="mockup">
-      <h1 class="mockup__heading">Наші тарифи</h1>
+      <h1 class="mockup__heading" id="pricing-heading">Наші тарифи</h1>
       <p class="mockup__lead">Оберіть план, який найкраще підходить для ваших завдань</p>
 
-      <div class="mockup__plans">
+      <section class="mockup__plans" aria-labelledby="pricing-heading">
         <article class="mockup__card">
           <h2 class="mockup__name">Basic</h2>
           <span class="mockup__price">$10<span class="mockup__period">/ month</span></span>
@@ -36,7 +66,13 @@
             <li>5GB Storage</li>
             <li>Basic Support</li>
           </ul>
-          <span class="mockup__cta">Select</span>
+          <a
+            href="#basic"
+            class="mockup__cta"
+            style="text-decoration: none"
+            aria-label="Обрати тарифний план Basic"
+            >Select</a
+          >
         </article>
 
         <article class="mockup__card mockup__card--featured">
@@ -48,7 +84,13 @@
             <li>50GB Storage</li>
             <li>Priority Support</li>
           </ul>
-          <span class="mockup__cta">Get Started</span>
+          <a
+            href="#pro"
+            class="mockup__cta"
+            style="text-decoration: none"
+            aria-label="Обрати тарифний план Pro"
+            >Get Started</a
+          >
         </article>
 
         <article class="mockup__card">
@@ -59,9 +101,15 @@
             <li>1TB Storage</li>
             <li>24/7 Support</li>
           </ul>
-          <span class="mockup__cta">Contact</span>
+          <a
+            href="#enterprise"
+            class="mockup__cta"
+            style="text-decoration: none"
+            aria-label="Зв'язатися щодо тарифного плану Enterprise"
+            >Contact</a
+          >
         </article>
-      </div>
+      </section>
     </main>
     <footer>
       <p class="footer-text">© 2026 AI-assisted верстка. All rights reserved.</p>

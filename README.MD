@@ -1,41 +1,64 @@
-# Frontend Lab 2: CSS Basics
+# Lab 3: AI-assisted semantic HTML & SEO
 
-A practice and research project focusing on core CSS mechanics (Box Model, Cascade, Specificity, Inheritance, CSS Variables, and Code Reusability) along with a responsive, component-based Pricing Plans layout.
+A front-end development and audit project focused on upgrading the semantic structure, web accessibility (WCAG 2.1), and on-page search engine optimization (SEO) of a responsive pricing plans web application and CSS research modules.
 
-## Project Structure & Features
+## Project Goal
 
-### 1. Main Pricing Page (`index.html`)
+The primary goal of this laboratory work is to transition an existing CSS/HTML layout into a standards-compliant, accessible, and SEO-optimized web application. Guided by MDN Web Docs, W3C Web Content Accessibility Guidelines (WCAG), and Google Search Central best practices, the project eliminates accessibility barriers and improves search engine crawlability and snippet presentation while strictly maintaining the visual design and CSS architecture.
 
-- **Responsive Pricing Table**: Modern pricing cards layout (Basic, Pro, Enterprise) built with CSS Flexbox fluid grid.
-- **Component Styling & BEM Architecture**: Structured class naming (`.mockup__card`, `.mockup__badge`, `.mockup__cta`, etc.).
-- **CSS Variables & Design Tokens**: Centralized color palette, spacing scale, and typography configured in `css/root.css`.
-- **Micro-interactions & States**: Hover transitions on call-to-action buttons, badge overlays, and pseudo-elements (`::before` checkmarks).
+## Key Audit Findings & Refactoring Changes
 
-### 2. CSS Research & Concept Demos (`researches/`)
+Following an AI-assisted audit based on the `frontend-review` framework, the following improvements were applied:
 
-- **4.1 Box Model** (`researches/html/4-1-box-model.html`): Visual comparison of `box-sizing: content-box` vs `box-sizing: border-box`.
-- **4.2 Cascade** (`researches/html/4-2-cascade.html`): Demonstrates stylesheet link ordering, internal `<style>` precedence, and rule order in CSS.
-- **4.3 Specificity** (`researches/html/4-3-specificity.html`): Comparison of CSS selector weights (element type vs class chaining vs ID selector).
-- **4.4 Inheritance** (`researches/html/4-4-inheritance.html`): Exploration of inherited vs non-inherited properties and explicit usage of the `inherit` keyword.
-- **4.5 CSS Variables** (`researches/html/4-5-variables.html`): Global variable scope (`:root`) vs component-level local scope overrides (`.dark-card`).
-- **4.6 Reusability & Refactoring** (`researches/html/4-6-reuse.html`): Modular component architecture with reusable base classes and modifier classes (`.btn`, `.btn-primary`, `.btn-outline`).
+### 1. Blocker Fixes
 
-## Running locally
+- **Interactive CTA Elements (`.mockup__cta`)**:
+  - _Problem_: Plan call-to-action triggers were implemented using non-interactive `<span class="mockup__cta">` elements. These lacked keyboard focusability (WCAG 2.1.1 Keyboard), could not be activated via `Enter`/`Space`, and were invisible to search engine web crawlers.
+  - _Resolution_: Replaced `<span>` elements with semantic anchor links (`<a href="..." class="mockup__cta">`) styled to preserve the exact visual appearance while enabling full keyboard navigation and crawler indexability.
+- **Canonical Tag Optimization**:
+  - _Problem_: The `<head>` contained an invalid placeholder `<link rel="canonical" href="#" />`, which misleads search engines and fragments search equity.
+  - _Resolution_: Updated to a valid absolute canonical URL pointing to the live GitHub Pages deployment.
 
-1. Clone or download this repository.
-2. Open `index.html` directly in your browser, **or** serve it locally, e.g.:
+### 2. Warning Fixes
+
+- **Metadata Quality & Language Alignment**:
+  - _Problem_: The page declared `lang="uk"`, but contained an English meta description and a technical assignment title (`ЛР-2: AI-assisted верстка`).
+  - _Resolution_: Updated `<title>` to a human- and keyword-relevant title (`Тарифи та плани підписки | Хмарні AI-сервіси`), created an informative Ukrainian `<meta name="description">` (150+ chars), and added Open Graph social metadata (`og:title`, `og:description`, `og:url`, `og:type`).
+- **Contextual Link Purpose (WCAG 2.4.4)**:
+  - _Problem_: Isolated button labels ("Select", "Get Started", "Contact") provided insufficient context for screen reader users browsing links out of context.
+  - _Resolution_: Added clear `aria-label` attributes (e.g., `aria-label="Обрати тарифний план Basic"`), establishing unambiguous purpose in assistive technology rotor/link menus.
+- **Semantic Navigation Structure**:
+  - _Problem_: The `<nav>` element contained bare links without an overarching list structure or distinguishing landmark label.
+  - _Resolution_: Added `aria-label="Лабораторні дослідження"` to differentiate the landmark and wrapped navigation items in a semantic `<ul>`/`<li>` structure with CSS `display: contents` to preserve the flexbox layout.
+- **Document Landmark Hierarchy**:
+  - _Problem_: Pricing cards were contained in a generic `<div class="mockup__plans">`, missing an opportunity to define a key document landmark.
+  - _Resolution_: Converted the container to `<section class="mockup__plans" aria-labelledby="pricing-heading">` and assigned `id="pricing-heading"` to the main `<h1>`.
+
+## Project Structure
+
+- `index.html`: Semantic, accessible, and SEO-optimized pricing page.
+- `css/`: Modular stylesheets (`root.css`, `nav.css`, `styles.css`).
+- `researches/`: Dedicated research pages exploring core CSS concepts:
+  - `4-1-box-model.html`: Box sizing comparison (`content-box` vs `border-box`).
+  - `4-2-cascade.html`: Cascade ordering and stylesheet precedence.
+  - `4-3-specificity.html`: Selector specificity calculation.
+  - `4-4-inheritance.html`: CSS property inheritance mechanics.
+  - `4-5-variables.html`: Custom properties and scope.
+  - `4-6-reuse.html`: Component reusability and modifier patterns.
+
+## Running Locally & Verification
+
+1. Open `index.html` directly in any modern browser, or run a local static server:
    ```bash
    npx serve .
    ```
-3. (Optional) Install dev dependencies to use lint/format tooling:
+2. Run code style and lint checks:
    ```bash
-   npm install
    npm run lint
-   npm run format
+   npm run format:check
    ```
 
 ## Links & Deployment
 
-- Repository: https://github.com/maksym-kovalchuk-ThePolarLeo/frontend-lab-2-css-basics
-- GitHub Pages: https://maksym-kovalchuk-thepolarleo.github.io/frontend-lab-2-css-basics/
-- Vercel: https://frontend-lab-2-css-basics.vercel.app/
+- **Repository**: [https://github.com/maksym-kovalchuk-ThePolarLeo/frontend-lab-3-ai-assisted-semantic-HTML-and-SEO](https://github.com/maksym-kovalchuk-ThePolarLeo/frontend-lab-3-ai-assisted-semantic-HTML-and-SEO)
+- **GitHub Pages**: [https://maksym-kovalchuk-thepolarleo.github.io/frontend-lab-3-ai-assisted-semantic-HTML-and-SEO/](https://maksym-kovalchuk-thepolarleo.github.io/frontend-lab-3-ai-assisted-semantic-HTML-and-SEO/)
