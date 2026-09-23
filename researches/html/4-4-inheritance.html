@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4.4 Inheritance</title>
+    <style>
+      /* 1. Задаємо базові стилі для всього документа */
+      body {
+        font-family: 'Courier New', Courier, monospace;
+        color: darkred;
+      }
+
+      /* 2. Клас для примусового успадкування */
+      .force-inherit {
+        color: inherit;
+        font-family: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Поведінка за замовчуванням</h2>
+
+    <!-- Текст в абзаці -->
+    <p>Це звичайний абзац (&lt;p&gt;). Він слухняно успадкував колір та шрифт.</p>
+
+    <!-- Посилання -->
+    <a href="#">Це посилання (&lt;a&gt;). Воно проігнорувало колір.</a>
+    <br /><br />
+
+    <!-- Кнопка -->
+    <button>Це кнопка (&lt;button&gt;). Вона проігнорувала і шрифт, і колір.</button>
+
+    <hr />
+
+    <h2>Виправлена поведінка (значення inherit)</h2>
+
+    <a href="#" class="force-inherit">Тепер посилання успадковує колір!</a>
+    <br /><br />
+
+    <button class="force-inherit">Тепер кнопка виглядає узгоджено!</button>
+  </body>
+</html>

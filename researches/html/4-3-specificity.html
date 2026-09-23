@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4.3 Specificity</title>
+    <style>
+      /* 1. Селектор тегу. Специфічність: (0,0,1) */
+      p {
+        color: grey;
+      }
+
+      /* 2. Селектор класу. Специфічність: (0,1,0) */
+      .text-style {
+        color: green;
+      }
+
+      /* 3. Ланцюжок класів. Специфічність: (0,11,0) */
+      .text-style.c1.c2.c3.c4.c5.c6.c7.c8.c9.c10 {
+        color: blue;
+      }
+
+      /* 4. Селектор ID. Специфічність: (1,0,0) */
+      #unique-text {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Змагання селекторів</h2>
+
+    <!-- Елемент має тег p, ID і цілих 11 класів -->
+    <p id="unique-text" class="text-style c1 c2 c3 c4 c5 c6 c7 c8 c9 c10">
+      Цей текст завжди буде червоним, попри кількість класів.
+    </p>
+  </body>
+</html>

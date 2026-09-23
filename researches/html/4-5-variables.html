@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4.5 CSS Variables</title>
+    <style>
+      /* 1. Глобальна область видимості (:root) */
+      :root {
+        /* Базові кольори (світла тема за замовчуванням) */
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --accent-color: #007bff;
+        --padding-base: 20px;
+      }
+
+      /* 2. Застосування глобальних змінних */
+      .card {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding: var(--padding-base);
+        border: 2px solid var(--accent-color);
+        border-radius: 8px;
+        max-width: 300px;
+        margin-bottom: 20px;
+        font-family: sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      .card h3 {
+        color: var(--accent-color);
+        margin-top: 0;
+      }
+
+      /* 3. Локальна область видимості (перевизначення змінних) */
+      .dark-card {
+        /* Змінюємо значення ТІЛЬКИ для цього класу та його нащадків */
+        --bg-color: #222222;
+        --text-color: #f8f9fa;
+        --accent-color: #ffc107;
+      }
+    </style>
+  </head>
+  <body style="background-color: #e9ecef; padding: 20px">
+    <h2>CSS Variables (Custom Properties)</h2>
+
+    <!-- Звичайна картка (використовує змінні з :root) -->
+    <div class="card">
+      <h3>Світла картка</h3>
+      <p>Я використовую глобальні значення змінних, визначені в :root.</p>
+    </div>
+
+    <!-- Темна картка (перевизначає змінні у своїй області видимості) -->
+    <div class="card dark-card">
+      <h3>Темна картка</h3>
+      <p>Я перевизначила значення кольорів локально, не змінюючи структуру CSS.</p>
+    </div>
+  </body>
+</html>

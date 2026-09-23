@@ -1,0 +1,115 @@
+/* 1. Глобальні налаштування та Box Model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Передбачувана ширина для всіх елементів */
+}
+
+/* 2. CSS Змінні (Глобальна область видимості) */
+:root {
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-text: #333333;
+    --color-bg: #f8f9fa;
+    --color-primary: #0d6efd;
+    --color-primary-hover: #0b5ed7;
+    --color-surface: #ffffff;
+    --color-border: #dee2e6;
+
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --radius-md: 8px;
+}
+
+body {
+    min-height: 100vh; /* Дозволяє скролити, якщо контент більший за екран */
+    margin: 0;
+    /* width: 100vw; - видалено, щоб уникнути горизонтального скролбару */
+    padding: 40px;
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+
+    display: flex;
+    /* flex-direction: row; - можна прибрати, бо це значення за замовчуванням */
+    gap: 20px;
+    justify-content: center; /* Центрує по горизонталі */
+    align-items: center;     /* Центрує по вертикалі і скидає дефолтний stretch */
+    flex-wrap: wrap;
+}
+
+/* =========================================
+ 3. КОМПОНЕНТ: Картка (.card)
+ Відповідає лише за власну геометрію
+ ========================================= */
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;       /* Займай всю доступну ширину... */
+    max-width: 320px;  /* ...але не більше ніж 320px */
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+}
+
+.card-text {
+    margin-bottom: var(--spacing-lg);
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+.card-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* =========================================
+ 4. КОМПОНЕНТ: Кнопка (.btn)
+ Базовий клас - логіка DRY
+ ========================================= */
+.btn {
+    display: inline-block;
+    font-family: inherit; /* Виправляємо дефолтне неуспадкування кнопок */
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent; /* Завжди маємо рамку, щоб блок не стрибав */
+
+}
+
+/* =========================================
+ 5. МОДИФІКАТОРИ КНОПОК
+ Керують лише кольорами (низька специфічність)
+ ========================================= */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}

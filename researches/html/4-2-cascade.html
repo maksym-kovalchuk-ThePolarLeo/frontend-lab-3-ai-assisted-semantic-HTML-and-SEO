@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4.2 Cascade</title>
+
+    <!-- 1. Зовнішній файл підключено першим -->
+    <link rel="stylesheet" href="../css/cascade-style.css" />
+
+    <!-- 2. Внутрішні стилі підключено після зовнішнього файлу -->
+    <style>
+      .color-blue {
+        color: blue;
+      }
+
+      .color-green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Порядок підключення та оголошення стилів</h2>
+
+    <!-- Порядок класів у HTML-атрибуті не має значення! -->
+    <p class="color-blue color-green color-red">Якого кольору буде цей текст?</p>
+  </body>
+</html>

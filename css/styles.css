@@ -1,0 +1,160 @@
+.mockup {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 2rem;
+
+    & .mockup__heading {
+        font-size: var(--font-size-h1);
+        font-weight: 700;
+        margin: 0 0 var(--spacing-sm) 0;
+    }
+
+    & .mockup__lead {
+        font-size: 1.125rem;
+        color: var(--color-text-muted);
+        margin: 0 0 4rem 0;
+    }
+}
+
+
+
+.mockup__plans {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    align-items: stretch;
+    & .mockup__card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-xl) var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        position: relative;
+        text-align: left;
+    }
+}
+
+/*.mockup__card {*/
+/*    background: var(--color-surface);*/
+/*    border: 1px solid var(--color-border);*/
+/*    border-radius: var(--border-radius);*/
+/*    padding: var(--spacing-xl) var(--spacing-lg);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    width: 100%;*/
+/*    max-width: 320px;*/
+/*    position: relative;*/
+/*    text-align: left;*/
+/*}*/
+
+.mockup__card--featured {
+    border: 1px solid var(--color-primary);
+}
+
+.mockup__badge {
+    position: absolute;
+    top: 0;
+    left: var(--spacing-lg);
+    transform: translateY(-50%);
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 99px;
+    letter-spacing: 0.05em;
+}
+
+.mockup__name {
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.mockup__price {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: baseline;
+}
+
+.mockup__period {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-left: 4px;
+}
+
+.mockup__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-xl) 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.mockup__features li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    color: var(--color-text-muted);
+}
+
+.mockup__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.mockup__cta {
+    display: block;
+    width: 100%;
+    padding: 12px var(--spacing-md);
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    background-color: transparent;
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+}
+
+.mockup__cta:hover {
+    border-color: var(--color-text-muted);
+}
+
+.mockup__card--featured .mockup__cta {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+}
+
+.mockup__card--featured .mockup__cta:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+@media (max-width: 768px) {
+    .mockup__plans {
+        flex-direction: column; /* Змінюємо напрямок на вертикальний */
+        align-items: center;    /* Центруємо картки по горизонталі */
+    }
+
+    /*.mockup__card {*/
+    /*    max-width: 400px; !* Дозволяємо карткам бути трохи ширшими на мобільних для кращої читабельності *!*/
+    /*}*/
+}
